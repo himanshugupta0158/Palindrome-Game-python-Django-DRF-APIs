@@ -5,7 +5,10 @@
 
 ## Setting Up the Project
 Follow these steps to set up the project:
-
+* Install Python Virtual Environment library :
+* ```bash
+  pip install virtualenv
+  ```
 * Create a virtual environment (optional but recommended):
   ```bash
   python -m venv venv
