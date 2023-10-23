@@ -46,18 +46,6 @@ class UserView(APIView):
 
         user.delete()
         return Response({'message': 'User deleted'}, status=status.HTTP_204_NO_CONTENT)
-     
-
-class UserDeleteView(APIView):
-    def get(self, request, user_id):
-        try:
-            user = User.objects.get(id=user_id)
-        except User.DoesNotExist:
-            return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
-
-        user.delete()
-        return Response({'message': 'User deleted'}, status=status.HTTP_204_NO_CONTENT)
-
 
 
 class UserLogin(APIView):
@@ -125,7 +113,7 @@ class UpdateBoardView(APIView):
                 is_completed=False
             ).first()
         else:
-            return Response({"Message" : "Please, Create Board First by using getBoard."})
+            return Response({"Message" : "Please, Create New Game by using getBoard."})
 
         if len(game.board) == 6 :
             board = game.board
@@ -155,7 +143,7 @@ class CombinedUpdateBoardView(APIView):
                 is_completed=False
             ).first()
         else:
-            return Response({"Message" : "Please, Create Board First by using getBoard."})
+            return Response({"Message" : "Please, Create New Game by using getBoard."})
         
         board_length = len(game.board)
         for _ in range(board_length,6-board_length):
@@ -174,12 +162,14 @@ class CombinedUpdateBoardView(APIView):
                     return Response({"Game OVER" : "Your Board string is not Palindrome, You LOSE !!!", "Game ID" : game.game_id, "Board String" : game.board})
         
 class ListGamesView(APIView):
+    authentication_classes = [authentication.SessionAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
     def get(self, request, format=None):
         games = {"Game-Info" : []}
 
         for game in Game.objects.all():
             games["Game-Info"].append({
-                "User" : game.user.id,
+                # "User" : game.user.id,
                 "Game ID" : game.game_id
             })
 

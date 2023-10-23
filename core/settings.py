@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'APIs.apps.ApisConfig',
     'rest_framework',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -75,12 +76,24 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_database_name',     # Replace with your database name
+        'USER': 'your_database_user',     # Replace with your database username
+        'PASSWORD': 'your_database_password',  # Replace with your database password
+        'HOST': 'localhost',            # Replace with the host where PostgreSQL is running
+        'PORT': '5432',                 # Replace with the PostgreSQL port
     }
 }
+
 
 
 # Password validation
