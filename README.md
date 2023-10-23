@@ -1,7 +1,7 @@
 # Palindrome Game Django APIs
 
-**Description:** This project implements REST APIs for a palindrome game using Python Django and Django Rest Framework (DRF). It includes user management and game-related APIs.
-**Database Used:**  <i>Postgresql Database</i>, you can do the required changes for setting up Postgresql with django by going into Django project root directory's settings.py's DATABASE variable and out required values for PostgreSQL there  like database name, username and password for PostgreSQL
+- **Description:** This project implements REST APIs for a palindrome game using Python Django and Django Rest Framework (DRF). It includes user management and game-related APIs.
+- **Database Used:**  <i>Postgresql Database</i>, you can do the required changes for setting up Postgresql with django by going into Django project root directory's settings.py's DATABASE variable and out required values for PostgreSQL there  like database name, username and password for PostgreSQL
 
 ## Setting Up the Project
 Follow these steps to set up the project:
